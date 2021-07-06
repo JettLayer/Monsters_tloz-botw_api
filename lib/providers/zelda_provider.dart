@@ -7,8 +7,7 @@ class ZeldaProvider {
 
   Future<List<MonstersModel>> tomarMonstruos(int pagina) async {
     List<MonstersModel> _monsters = [];
-    final _response =
-        await _http.get(_url, queryParameters: {'offset': pagina});
+    final _response = await _http.get(_url);
     List<dynamic> _data = _response.data['results'];
     for (int i = 0; i < _data.length; i++) {
       final responseMonster = await _http.get(_data[i]['url']);
